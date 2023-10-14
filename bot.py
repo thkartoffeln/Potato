@@ -6,7 +6,7 @@ from discord.ext import commands
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='potato ', owner_id = 254198214415220738, intents=intents)
 bot.remove_command('help')
-bot.versiune = '0.0.1'
+bot.versiune = '0.0.2'
 
 @bot.event
 async def on_ready():
