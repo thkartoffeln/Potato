@@ -37,4 +37,4 @@ async def avatar(interaction:discord.Interaction,member:discord.Member):
     
 
 
-bot.run('NDExODkxMTE3ODczODIzNzQ0.G-YwEo.2wUxhPYgJEKYwDCThkDFjcfWAxGqV1qHaE1Ujg')
+bot.run(TOKEN)
