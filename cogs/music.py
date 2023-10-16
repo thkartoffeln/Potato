@@ -62,9 +62,9 @@ class Player(pomice.Player):
                     color=0x00ffff,
                 )
             view = MyView()
-            buton_stop = discord.ui.Button(label="🛑| Stop", style=discord.ButtonStyle.red)
+            buton_stop = discord.ui.Button(label="⏹| Stop", style=discord.ButtonStyle.red)
             buton_skip = discord.ui.Button(label="⏭| Skip", style=discord.ButtonStyle.primary)
-            buton_pause = discord.ui.Button(label="⏯| Pause", style=discord.ButtonStyle.primary)
+            buton_pause = discord.ui.Button(label="⏸| Pause", style=discord.ButtonStyle.primary)
             buton_queue = discord.ui.Button(label="📃| Queue", style=discord.ButtonStyle.primary)
 
             async def buttonqueue_callback(interaction):
@@ -88,14 +88,14 @@ class Player(pomice.Player):
                         await interaction.response.send_message(embed=em, ephemeral=True)
                         await player.set_pause(False)
                         embed.title = f"Now playing"
-                        buton_pause.label="⏯| Pause"
+                        buton_pause.label="⏸| Pause"
                         buton_pause.style=discord.ButtonStyle.primary
                         await self.controller.edit(embed=embed, view=view)
                     if not player.is_paused:   
                         em = discord.Embed(description=f"{interaction.user.mention} has paused the player.", color=0x00ffff)
                         await interaction.response.send_message(embed=em, ephemeral=True)
                         await player.set_pause(True)
-                        buton_pause.label="⏯| Resume"
+                        buton_pause.label="▶| Resume"
                         buton_pause.style=discord.ButtonStyle.green
                         embed.title = f"Paused by {interaction.user.name} "
                         await self.controller.edit(embed=embed, view=view)
