@@ -43,8 +43,8 @@ class Player(pomice.Player):
 
         if track.is_stream:
             embed = discord.Embed(
-                title="Now playing",
-                description=f":red_circle: **LIVE** [{track.title}]({track.uri}) [By {track.requester.mention}]",
+                title="Live",
+                description=f"[{track.title}]({track.uri}) [By {track.requester.mention}]",
                 color=0x00ffff,
             )
             self.controller = await self.context.send(embed=embed)
@@ -57,7 +57,7 @@ class Player(pomice.Player):
                 )
             if not player.is_paused:
                 embed = discord.Embed(
-                    title=f"Now playing",
+                    title=f"Playing",
                     description=f"[{track.title}]({track.uri}) [{track.requester.mention}]",
                     color=0x00ffff,
                 )
@@ -87,7 +87,7 @@ class Player(pomice.Player):
                         em = discord.Embed(description=f"{interaction.user.mention} has resumed the player.", color=0x00ffff)
                         await interaction.response.send_message(embed=em, ephemeral=True)
                         await player.set_pause(False)
-                        embed.title = f"Now playing"
+                        embed.title = f"Playing"
                         buton_pause.label="⏸| Pause"
                         buton_pause.style=discord.ButtonStyle.primary
                         await self.controller.edit(embed=embed, view=view)
@@ -168,7 +168,7 @@ class Music(commands.GroupCog, name="music", description="Music commands."):
             bot=self.bot,
             host="0.0.0.0",
             port=2333,
-            password="TestTest123",
+            password="passwd",
             identifier="MAIN",
         )
         print(f"[NOD] Connected to the server.")
